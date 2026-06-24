@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/raw/
+data/processed/
+models/*.pt
+models/*.onnx
+node_modules/
+frontend/node_modules/
+*.zip
+.kaggle/
+.vscode/

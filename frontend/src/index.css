@@ -1,0 +1,300 @@
+/* ── Reset & Base ─────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.app { min-height: 100vh; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.header {
+  background: #161b27;
+  border-bottom: 1px solid #1e293b;
+  padding: 1.25rem 2rem;
+}
+
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.header-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ── Dropzone ─────────────────────────────────────────────── */
+.upload-section { width: 100%; }
+
+.dropzone {
+  border: 2px dashed #2d3748;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #161b27;
+}
+
+.dropzone:hover { border-color: #22c55e; background: #161f2a; }
+.dropzone.active { border-color: #22c55e; background: #0d2016; }
+.dropzone.disabled { opacity: 0.5; cursor: not-allowed; }
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dropzone-text {
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.dropzone-hint {
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.error-box {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #2d1515;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
+
+/* ── Result ───────────────────────────────────────────────── */
+.result-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .result-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card {
+  background: #161b27;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Loading ──────────────────────────────────────────────── */
+.loading-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem;
+  color: #64748b;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #1e293b;
+  border-top-color: #22c55e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Images ───────────────────────────────────────────────── */
+.image-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.img-wrapper { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.img-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.leaf-img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.inference-time {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+/* ── Diagnosis ────────────────────────────────────────────── */
+.diagnosis-badge {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  background: #0d1117;
+}
+
+.diagnosis-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.disease-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.disease-plant {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.disease-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* ── Confidence ───────────────────────────────────────────── */
+.confidence-section { margin-bottom: 1.25rem; }
+
+.confidence-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.confidence-pct { font-weight: 700; color: #f1f5f9; }
+
+.confidence-bar-bg {
+  height: 8px;
+  background: #1e293b;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+/* ── Other Predictions ────────────────────────────────────── */
+.other-preds-title {
+  font-size: 0.8rem;
+  color: #475569;
+  margin-bottom: 0.6rem;
+}
+
+.other-pred-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.other-bar-bg {
+  flex: 1;
+  height: 5px;
+  background: #1e293b;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.other-bar-fill {
+  height: 100%;
+  background: #334155;
+  border-radius: 99px;
+}
+
+.other-pct { min-width: 36px; text-align: right; }
+
+/* ── Tips ─────────────────────────────────────────────────── */
+.tips-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+.tip-item {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.tip-item.treatment {
+  background: #1a1a2e;
+  border-left: 3px solid #6366f1;
+  color: #a5b4fc;
+}
+
+.tip-item.prevention {
+  background: #0d2016;
+  border-left: 3px solid #22c55e;
+  color: #86efac;
+}
