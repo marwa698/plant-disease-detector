@@ -34,14 +34,14 @@ RUN useradd --create-home --shell /bin/bash appuser && \
 USER appuser
 
 # ── Expose Port ───────────────────────────────────────────────
-EXPOSE 8000
+EXPOSE 7860
 
 # ── Health Check ──────────────────────────────────────────────
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "import requests; requests.get('http://localhost:8000/health')" || exit 1
+    CMD python -c "import requests; requests.get('http://localhost:7860/health')" || exit 1
 
 # ── Run ───────────────────────────────────────────────────────
 CMD ["uvicorn", "src.api.main:app", \
      "--host", "0.0.0.0", \
-     "--port", "8000", \
+     "--port", "7860", \
      "--workers", "2"]
