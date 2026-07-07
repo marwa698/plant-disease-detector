@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone"
 import axios from "axios"
 import { Upload as UploadIcon, Image } from "lucide-react"
 
-const API_URL = "http://localhost:8000"
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"
 
 function Upload({ setResult, setLoading, setPreview, loading }) {
   const [error, setError] = useState(null)
